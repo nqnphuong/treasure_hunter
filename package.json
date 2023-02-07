@@ -1,0 +1,32 @@
+{
+  "name": "treasurehunter",
+  "version": "1.0.0",
+  "description": "learn PixiJS and try to code Treasure hunter game",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nqnphuong/treasure_hunter.git"
+  },
+  "author": "nqnphuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nqnphuong/treasure_hunter/issues"
+  },
+  "homepage": "https://github.com/nqnphuong/treasure_hunter#readme",
+  "dependencies": {
+    "pixi.js": "^7.1.2",
+    "webpack-dev-server": "^4.11.1",
+    "esbuild-loader": "^2.20.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules/
+package-lock.json
+ 
+# copy from https://gitlab.com/dqkhanh.2k/ball-brick-breaker/-/blob/main/.gitignore
