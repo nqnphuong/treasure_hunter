@@ -1,17 +1,13 @@
 import { Container, Sprite, Texture } from "pixi.js";
-
+import { Contain } from "../utils/contain";
 
 export class Monsters extends Container {
     constructor() {
         super();
     }
 
-    // createOne() {
-    //     let texture = Texture.from("images/blob.png");
-    //     this.monster = new Sprite(texture);
-    // }
-
     createMany() {
+        // create monsters
         let numberOfTreasure = 6,
             spacing = 48,
             xOffset = 150,
@@ -31,4 +27,20 @@ export class Monsters extends Container {
         }
     }
 
+    updateMonsters() {
+        this.monsters.forEach(monster => {
+            //Move the blob
+            monster.y += monster.vy;
+
+            //Check the blob's screen boundaries
+            this.contain = new Contain();
+            const blobHitsWall = this.contain.contain(monster, { x: 28, y: 10, width: 488, height: 480 });
+
+            //If the blob hits the top or bottom of the stage, reverse
+            //its direction
+            if (blobHitsWall === "top" || blobHitsWall === "bottom") {
+                monster.vy *= -1;
+            }
+        });
+    }
 }

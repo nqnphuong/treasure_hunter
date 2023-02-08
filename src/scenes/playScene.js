@@ -5,6 +5,7 @@ import { Hunter } from "../objects/hunter";
 import { Monsters } from "../objects/monsters";
 import { HealthBar } from "../objects/healthBar";
 
+
 export class PlayScene extends Container{
     constructor(){
         super();
@@ -41,6 +42,8 @@ export class PlayScene extends Container{
         this.hunter.create();
         this.playSceneContainer.addChild(this.hunter);
         console.log(this.hunter.x + " " + this.hunter.y); // check position
+    
+        this.hunter.hunterController();
     }
 
     createMonsters(){
