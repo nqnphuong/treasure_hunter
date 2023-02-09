@@ -3,8 +3,8 @@
 
 export class Collider {
     hitTestRectangle(r1, r2) {
-        console.log(r1);
-        console.log(r2);
+        // console.log(r1);
+        // console.log(r2);
 
         //Define the variables we'll need to calculate
         let hit, combinedHalfWidths, combinedHalfHeights, vx, vy;

@@ -29,7 +29,7 @@ export default class Game {
     this.gameOverScene = new GameOverScene();
     this.app.stage.addChild(this.gameOverScene.gameOverSceneContainer);
     this.gameOverScene.visible = false;
-
+    
     //get keyController
     //I get the hunterController in object/hunter.js
 
@@ -60,7 +60,7 @@ export default class Game {
     let hunterHit = false;
     this.collider = new Collider();
     this.playScene.monsters.monsters.forEach(monster => {
-      if (this.collider.hitTestRectangle(this.playScene.hunter, monster)) {
+      if (this.collider.hitTestRectangle(this.playScene.hunter.hunter, monster)) {
         hunterHit = true;
       }
     });
@@ -71,12 +71,28 @@ export default class Game {
       this.playScene.hunter.alpha = 1;
     }
 
+    if (this.collider.hitTestRectangle(this.playScene.hunter.hunter, this.playScene.treasure.treasure)) {
+      this.playScene.treasure.treasure.x = this.playScene.hunter.hunter.x + 8;
+      this.playScene.treasure.treasure.y = this.playScene.hunter.hunter.y + 8;
+    }
 
+    //Lost
+    if (this.playScene.healthBar.healthBar.outer.width < 0) {
+      console.log("end");
+      this.state = this.end;
+      this.gameOverScene.message.text = "You lost!";
+    }
+
+    // Win
+    if (this.collider.hitTestRectangle(this.playScene.hunter.hunter, this.playScene.door.door)) {
+      this.state = this.end;
+      this.gameOverScene.message.text = "You won!";
+    } 
   }
 
   end() {
     //All the code that should run at the end of the game
     this.playScene.visible = false;
-    this.gameOverScene.visible = false;
+    this.gameOverScene.visible = true;
   }
 }

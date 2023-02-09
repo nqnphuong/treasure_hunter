@@ -1,4 +1,4 @@
-import { Container, TextStyle} from "pixi.js";
+import { Container, TextStyle, Text} from "pixi.js";
 
 export class GameOverScene extends Container {
     constructor() {
@@ -7,15 +7,15 @@ export class GameOverScene extends Container {
         this.gameOverScene();
     }
 
-
     gameOverScene() {
         const style = new TextStyle({
             fontFamily: "Futura",
             fontSize: 64,
             fill: "white"
         });
-        this.message = new Text("The End!", style);
+        this.message = new Text("", style);
         this.message.x = 120;
         this.message.y = 512 / 2 - 32;
+        this.gameOverSceneContainer.addChild(this.message);
     }
 }
