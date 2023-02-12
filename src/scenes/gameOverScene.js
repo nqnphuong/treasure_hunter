@@ -1,4 +1,5 @@
 import { Container, TextStyle, Text} from "pixi.js";
+import { GAME_HEIGHT } from "../utils/declare"
 
 export class GameOverScene extends Container {
     constructor() {
@@ -15,7 +16,7 @@ export class GameOverScene extends Container {
         });
         this.message = new Text("", style);
         this.message.x = 120;
-        this.message.y = 512 / 2 - 32;
+        this.message.y = GAME_HEIGHT / 2 - 32;
         this.gameOverSceneContainer.addChild(this.message);
     }
 }

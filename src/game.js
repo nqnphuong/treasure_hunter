@@ -2,12 +2,12 @@ import { Application, Sprite, Assets, Container } from "pixi.js";
 import { PlayScene } from "./scenes/playScene";
 import { GameOverScene } from "./scenes/gameOverScene";
 import { Collider } from "./collisions/collider";
-
+import { GAME_HEIGHT, GAME_WIDTH } from "./utils/declare"
 export default class Game {
   constructor() {
     this.app = new Application({
-      width: 512,
-      height: 512,
+      width: GAME_WIDTH,
+      height: GAME_HEIGHT,
       antialias: true,
       transparent: false,
       resolution: window.devicePixelRatio || 1,

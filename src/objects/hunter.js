@@ -1,7 +1,7 @@
 import { Container, Sprite, Texture } from "pixi.js";
 import { Keyboard } from "../inputs/keyboard";
-import { Contain } from "../utils/contain";
-
+import { Utils } from "../utils/utils";
+import { GAME_HEIGHT, GAME_WIDTH } from "../utils/declare"
 
 export class Hunter extends Container {
     constructor() {
@@ -12,7 +12,7 @@ export class Hunter extends Container {
         let texture = Texture.from("images/explorer.png");
         this.hunter = new Sprite(texture);
         this.hunter.x = 68;
-        this.hunter.y = 512 / 2 - this.hunter.height / 2;
+        this.hunter.y = GAME_HEIGHT / 2 - this.hunter.height / 2;
         this.hunter.vx = 0;
         this.hunter.vy = 0;
         this.addChild(this.hunter);
@@ -81,8 +81,8 @@ export class Hunter extends Container {
     }
 
     hunterInsideMap() {
-        this.contain = new Contain();
-        this.contain.contain(this.hunter, { x: 28, y: 10, width: 488, height: 480 });
+        this.utils = new Utils();
+        this.utils.contain(this.hunter, { x: 28, y: 10, width: 488, height: 480 });
     }
 
 }

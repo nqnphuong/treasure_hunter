@@ -1,5 +1,6 @@
 // this is a class which I create because I don't know 
 // how to code collider
+// Collider Old class: using to wait I using How to code collider
 
 export class Collider {
     hitTestRectangle(r1, r2) {

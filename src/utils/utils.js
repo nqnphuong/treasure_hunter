@@ -1,5 +1,6 @@
-
-export class Contain{
+// write many function util. 
+// the name object class must be change util :))
+export class Utils{
     contain(sprite, container){
 
         let collision = undefined;
@@ -30,5 +31,14 @@ export class Contain{
 
         //Return the `collision` value
         return collision;
+    }
+
+    calcDistance(x1, y1, x2 = undefined, y2 = undefined) {
+        if(x2 && y2) {
+            return Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+        }
+        else{
+            return Math.sqrt(x1**2 + y1**2);
+        }
     }
 }

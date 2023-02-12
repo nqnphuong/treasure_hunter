@@ -1,5 +1,5 @@
 import { Container, Sprite, Texture } from "pixi.js";
-
+import { GAME_HEIGHT, GAME_WIDTH } from "../utils/declare"
 
 export class Treasure extends Container {
     constructor() {
@@ -9,8 +9,8 @@ export class Treasure extends Container {
     create() {
         let texture = Texture.from("images/treasure.png");
         this.treasure = new Sprite(texture);
-        this.treasure.x = 512 - this.treasure.width - 60;
-        this.treasure.y = 512 / 2 - this.treasure.height / 2;
+        this.treasure.x = GAME_WIDTH - this.treasure.width - 60;
+        this.treasure.y = GAME_HEIGHT / 2 - this.treasure.height / 2;
         this.addChild(this.treasure);
     }
 }

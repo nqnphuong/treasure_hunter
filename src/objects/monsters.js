@@ -1,6 +1,6 @@
 import { Container, Sprite, Texture } from "pixi.js";
-import { Contain } from "../utils/contain";
-
+import { Utils } from "../utils/utils";
+import { GAME_HEIGHT, GAME_WIDTH } from "../utils/declare"
 export class Monsters extends Container {
     constructor() {
         super();
@@ -17,7 +17,7 @@ export class Monsters extends Container {
         for (let i = 0; i < numberOfTreasure; i++) {
             const monster = new Sprite(Texture.from("images/blob.png"));
             const x = spacing * i + xOffset;
-            const y = Math.floor(Math.random() * (512 - monster.height - 0 + 1)) + 0;
+            const y = Math.floor(Math.random() * (GAME_HEIGHT - monster.height - 0 + 1)) + 0;
             monster.x = x;
             monster.y = y;
             monster.vy = speed * direction;
@@ -33,8 +33,8 @@ export class Monsters extends Container {
             monster.y += monster.vy;
 
             //Check the blob's screen boundaries
-            this.contain = new Contain();
-            const blobHitsWall = this.contain.contain(monster, { x: 28, y: 10, width: 488, height: 480 });
+            this.utils = new Utils();
+            const blobHitsWall = this.utils.contain(monster, { x: 28, y: 10, width: 488, height: 480 });
 
             //If the blob hits the top or bottom of the stage, reverse
             //its direction

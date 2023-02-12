@@ -1,4 +1,5 @@
 import { Container, Graphics } from "pixi.js";
+import { GAME_HEIGHT, GAME_WIDTH } from "../utils/declare"
 
 export class HealthBar extends Container {
     constructor() {
@@ -7,7 +8,7 @@ export class HealthBar extends Container {
 
     create() {
         this.healthBar = new Container();
-        this.healthBar.position.set(512 - 170, 4)
+        this.healthBar.position.set(GAME_WIDTH - 170, 4)
         this.addChild(this.healthBar);
 
         //Create the black background rectangle
